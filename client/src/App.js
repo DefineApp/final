@@ -12,6 +12,7 @@ import Login from "./Components/auth/Login";
 import Alerts from "./Components/layout/Alerts";
 import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./Components//routing/PrivateRoute";
+import ViewSubmissions from "./Components/pages/ViewSubmissions";
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
@@ -28,6 +29,7 @@ const App = () => {
                 <Alerts />
                 <Switch>
                   <PrivateRoute exact path="/" component={Home} />
+                  <PrivateRoute exact path="/viewsubmissions" component={ViewSubmissions} />
                   <Route exact path="/about" component={About} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
