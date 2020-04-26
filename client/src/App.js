@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./Components/pages/Home";
 import About from "./Components/pages/About";
+import Submissions from "./Components/pages/Submission";
 import Navbar from "./Components/layout/Navbar";
 import ContactState from "./context/contact/ContactState";
 import AuthState from "./context/auth/AuthState";
@@ -29,7 +30,11 @@ const App = () => {
                 <Alerts />
                 <Switch>
                   <PrivateRoute exact path="/" component={Home} />
-                  <PrivateRoute exact path="/viewsubmissions" component={ViewSubmissions} />
+                  <PrivateRoute
+                    exact
+                    path="/submission"
+                    component={Submissions}
+                  />
                   <Route exact path="/about" component={About} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />

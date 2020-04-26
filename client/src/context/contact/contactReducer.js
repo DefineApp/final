@@ -1,4 +1,5 @@
 import {
+  GET_CHALLENGES,
   ADD_CHALLENGE,
   DELETE_CHALLENGE,
   SET_CURRENT,
@@ -6,14 +7,22 @@ import {
   UPDATE_CHALLENGE,
   FILTER_CHALLENGE,
   CLEAR_FILTER,
+  CHALLENGE_ERROR,
 } from "../types";
 
 export default (state, action) => {
   switch (action.type) {
+    case GET_CHALLENGES:
+      return {
+        ...state,
+        contacts: action.payload,
+        loading: false,
+      };
     case ADD_CHALLENGE:
       return {
         ...state,
         contacts: [...state.contacts, action.payload],
+        loading: false,
       };
     case UPDATE_CHALLENGE:
       return {
@@ -21,6 +30,7 @@ export default (state, action) => {
         contacts: state.contacts.map((contact) =>
           contact.id === action.payload.id ? action.payload : contact
         ),
+        loading: false,
       };
     case DELETE_CHALLENGE:
       return {
@@ -28,6 +38,7 @@ export default (state, action) => {
         contacts: state.contacts.filter(
           (contact) => contact.id !== action.payload
         ),
+        loading: false,
       };
     case SET_CURRENT:
       return {
@@ -51,6 +62,11 @@ export default (state, action) => {
       return {
         ...state,
         filtered: null,
+      };
+    case CHALLENGE_ERROR:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;

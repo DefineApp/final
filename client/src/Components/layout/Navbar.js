@@ -13,7 +13,16 @@ const Navbar = ({ title, icon }) => {
 
   const authLinks = (
     <Fragment>
-      <li>Welcome {user && user.name}</li>
+      <li>Welcome! {user && user.name}</li>
+      <li>
+        <Link to="/about"> About </Link>
+      </li>
+      <li>
+        <Link to="/submission"> Submissions </Link>
+      </li>
+      <li>
+        <Link to="/"> Home </Link>
+      </li>
       <li>
         <a onClick={onLogout} href="#!">
           <i className="fas fa-sign-out-alt"></i>{" "}
@@ -51,7 +60,7 @@ Navbar.propTypes = {
 };
 
 Navbar.defaultProps = {
-  title: "EarthX",
+  title: "Défine",
   icon: "fas fa-id-card-alt",
 };
 

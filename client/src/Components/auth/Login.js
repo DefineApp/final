@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import AuthContext from "../../context/auth/authContext";
 import AlertContext from "../../context/alert/alertContext";
+import { Link } from "react-router-dom";
 
 const Login = (props) => {
   const alertContext = useContext(AlertContext);
@@ -71,6 +72,11 @@ const Login = (props) => {
           value="Login"
           className="btn btn-primary btn-block"
         />
+        <div>
+          <p style={{ textAlign: "center" }}>
+            Dont have an Account yet? <Link to="/register"> Register </Link>
+          </p>
+        </div>
       </form>
     </div>
   );
